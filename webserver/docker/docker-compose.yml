@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+
+  web:
+    image: nginx:1.17
+    restart: always
+    ports:
+      - 80:80/tcp
+    volumes:
+      - /home/tibor/webserver/html/:/var/www/myapp
+
+      - /home/tibor/webserver/server/site.conf:/etc/nginx/conf.d/site.conf
+      - /home/tibor/webserver/config/default.conf:/etc/nginx/conf.d/default.conf 
+      - /home/tibor/webserver/config/sites/400.html:/usr/share/nginx/html/400.html
+      - /home/tibor/webserver/config/sites/50x.html:/usr/share/nginx/html/50x.html
+      - /home/tibor/webserver/config/sites/secure.html:/usr/share/nginx/html/secure.html
+      - /home/tibor/webserver/config/sites/index.html:/usr/share/nginx/html/index.html 
+      - /home/tibor/webserver/config/sites/image/ :/usr/share/nginx/html/image
+        
